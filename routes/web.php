@@ -30,3 +30,9 @@ Route::get('/heure', function () {
         'date' => now()->format('d/m/Y'),
     ]);
 });
+Route::get('/a-propos', function () {
+    return view('a-propos', [
+        'auteur' => 'Kadri Saif Edin',
+        'groupe' => 'MDW3.2',
+    ]);
+});
