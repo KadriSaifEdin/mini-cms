@@ -32,7 +32,7 @@ et évite de saisir les informations d’authentification à chaque opération.
 
 ## 6. Historique depuis lab-01
 
-Nombre de commits depuis lab-01 : 6 commits
+Nombre de commits depuis lab-01 : 7 commits
 
 Fichiers modifiés depuis lab-01 : 6 fichiers
 1.README.md                          
@@ -42,4 +42,4 @@ Fichiers modifiés depuis lab-01 : 6 fichiers
 5.routes/web.php                     
 6.screenshots/s02-a-propos.png       
 
-Ce que git tag -n affiche pour lab-01 : lab-01          lab-01
+Ce que git tag -n affiche pour lab-01 : lab-01          lab-01 (La message de la tag lab-01)
