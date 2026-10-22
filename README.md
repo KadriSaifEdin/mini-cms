@@ -1,33 +1,36 @@
-
 # Mini-CMS
 
 Projet fil rouge de l'Atelier Framework Côté Serveur (Laravel 13, PHP 8.3+), 3e année MDW, ISET Sidi Bouzid.
 
 Auteur : Kadri Saif Edin, groupe MDW3.2.
 
-Mini-CMS évoluera au fil du semestre vers une petite plateforme de publication : pages publiques, back-office authentifié, API JSON et tests Pest. Chaque session se termine par un tag Git (`lab-01`, `lab-01b`, puis un tag par session).
+Mini-CMS évoluera au fil du semestre vers une petite plateforme de publication : pages publiques, back-office 
+authentifié, API JSON et tests Pest. Chaque session se termine par un tag Git (`lab-01`, `lab-01b`, puis un tag par 
+session).
 
-## État actuel (tag lab-01b)
+## État actuel (tag lab-02)
 
-- Routes en closures : `/`, `/bonjour`, `/bonjour-court`, `/bienvenue`, `/version`, `/heure` et `/a-propos`.
-- Vues Blade : `bienvenue`, `heure` et `a-propos`.
+- Routes nommées, toutes servies par des contrôleurs : `PageController` (pages) et `PostController` (articles).
+- Articles stockés dans un tableau PHP, sans base de données pour l'instant.
+- Layout Blade `<x-layout>` avec Tailwind chargé par Vite.
 - Base de données SQLite locale (`database/database.sqlite`, non versionnée).
 
 ## Routes disponibles
 
-| Méthode | URI | Réponse |
-|---|---|---|
-| GET | `/` | Page d'accueil |
-| GET | `/bonjour` | Affiche un message de bienvenue |
-| GET | `/bonjour-court` | Affiche un message de bienvenue court |
-| GET | `/bienvenue` | Vue `bienvenue` |
-| GET | `/version` | Affiche la version de Laravel et de PHP |
-| GET | `/heure` | Vue `heure` avec l'heure et la date |
-| GET | `/a-propos` | Vue `a-propos` avec le nom de l'auteur et le groupe |
+| Méthode | URI | Nom | Action |
+|---|---|---|---|
+| GET | `/` | `home` | `PageController@home` |
+| GET | `/a-propos` | `about` | `PageController@about` |
+| GET | `/heure` | `time` | `PageController@time` |
+| GET | `/posts` | `posts.index` | `PostController@index` |
+| GET | `/posts/archive/{year}` | `posts.archive` | `PostController@archive` |
+| GET | `/posts/{slug}` | `posts.show` | `PostController@show` |
 
 ## Prérequis
 
-- PHP et Composer (PHP 8.3 ou plus depuis https://www.php.net/downloads, avec les extensions curl, fileinfo, mbstring, openssl, pdo_sqlite, sqlite3 et zip activées dans php.ini, et Composer depuis https://getcomposer.org).
+- PHP et Composer (PHP 8.3 ou plus depuis [PHP Downloads](https://www.php.net/downloads), avec les extensions `curl`, 
+`fileinfo`, `mbstring`, `openssl`, `pdo_sqlite`, `sqlite3` et `zip` activées dans `php.ini`, et Composer depuis 
+[Composer](https://getcomposer.org)).
 - Node.js LTS et npm.
 - Git.
 
@@ -61,7 +64,8 @@ php artisan migrate
 composer run dev
 ```
 
-Ouvrir ensuite http://localhost:8000 (adresse de l'application, différente de l'adresse de Vite sur le port 5173).
+Ouvrir ensuite [http://localhost:8000](http://localhost:8000) (adresse de l'application, différente de l'adresse de 
+Vite sur le port 5173).
 
 ## Captures d'écran
 
@@ -69,14 +73,22 @@ Ouvrir ensuite http://localhost:8000 (adresse de l'application, différente de l
 
 ![Page d'accueil de Mini-CMS](screenshots/s01-accueil.png)
 
-### Page Bienvenue
-
-![Page Bienvenue](screenshots/s01-bienvenue.png)
-
 ### Liste des routes
 
 ![Sortie de php artisan route:list](screenshots/s01-route-list.png)
 
 ### Page À propos
 
-![Page A propos](screenshots/s02-a-propos.png)
+![Page À propos](screenshots/s02-a-propos.png)
+
+### Accueil avec le layout
+
+![Page d'accueil avec le layout](screenshots/s03-accueil.png)
+
+### Liste des articles
+
+![Liste des articles](screenshots/s03-articles.png)
+
+### Détail d'un article
+
+![Détail d'un article](screenshots/s03-article.png)
