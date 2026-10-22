@@ -6,4 +6,4 @@
     @if ($subtitle)
         <p class="mt-2 text-gray-600">{{ $subtitle }}</p>
     @endif
-</div>
+</div> 

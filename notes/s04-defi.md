@@ -9,4 +9,5 @@ Le composant remplace le h1 de a-propos.blade.php et de posts/index.blade.php : 
 Aucune URL écrite à la main : oui
 
 Sur /posts/archive/2025, quel titre affiche x-page-header, et d'où vient-il ?
-Le composant affiche le titre « Articles de 2025 ». Ce titre provient de la variable $heading, définie par le contrôleur selon l’année demandée, puis transmise au composant avec :title="$heading".
+Le composant affiche le titre « Articles de 2025 ». Ce titre provient de la variable $heading, définie par le 
+contrôleur selon l’année demandée, puis transmise au composant avec :title="$heading".

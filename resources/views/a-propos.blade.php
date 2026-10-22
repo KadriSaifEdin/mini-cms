@@ -3,7 +3,8 @@
 
     <x-page-header
     title="À propos"
-    subtitle="Présentation du projet Mini-CMS"/>
+    subtitle="Présentation du projet Mini-CMS"
+    />
     
     <div class="space-y-4 max-w-2xl">
         <p class="text-gray-700 leading-relaxed">
