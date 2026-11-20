@@ -43,3 +43,31 @@ it('keeps the standard 404 page for an unknown category', function () {
         ->assertNotFound()
         ->assertDontSee('Article introuvable');
 });
+
+
+it('shows the read-only banner on the home page', function () {
+    config(['site.read_only' => true]);
+
+    $this->get('/')
+        ->assertOk()
+        ->assertSee('Site en lecture seule');
+});
+
+it('suggests a published post but not a draft on the unknown post page', function () {
+    Post::factory()->create([
+        'title' => 'Article publie reconnaissable',
+        'is_published' => true,
+        'published_at' => now(),
+    ]);
+
+    Post::factory()->create([
+        'title' => 'Brouillon reconnaissable',
+        'is_published' => false,
+        'published_at' => null,
+    ]);
+
+    $this->get('/posts/999')
+        ->assertNotFound()
+        ->assertSee('Article publie reconnaissable')
+        ->assertDontSee('Brouillon reconnaissable');
+});
